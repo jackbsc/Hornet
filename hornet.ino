@@ -133,7 +133,7 @@ void loop() {
 
 	if (calDepth == false) {			//if no calibrate depth sensor command is received
 		currentMillis = millis();		//send depth and battery data at approx. 40Hz
-		if (currentMillis - previousMillis >1000) {
+		if (currentMillis - previousMillis > 25) {
 			console.sendDepthData(adcFilter == CMD_MEAN ? depthSensor.getCMByMean() : depthSensor.getCMByMedian()); //choose which depth data to send according to the filter set
 			console.sendCapacity(capacity);
 			console.sendCurrent(current);

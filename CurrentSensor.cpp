@@ -34,7 +34,6 @@ uint16_t CurrentSensor::getCapacity(float* _current) {
 	currentMillis = millis();
 	if (currentMillis - previousMillis > 10000) {	//every 10sec
 		previousMillis = currentMillis;
-		Serial.println("Recorded");
 		eeprom_update_word((uint16_t*)15, (uint16_t)capacity);
 		eeprom_busy_wait();
 	}
